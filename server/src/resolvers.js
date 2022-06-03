@@ -12,9 +12,11 @@ const resolvers = {
   }
  },
  Track: {
+  //  fetch author using the author api using the author ID
    author: ({ authorId }, _, { dataSources }) => {
     return dataSources.TrackAPI.getAuthor(authorId);
    },
+  //  fetch modules using the module api with the module id
    modules: ({ id }, _, { dataSources }) => {
      return dataSources.TrackAPI.getTrackModules(id)
    }
