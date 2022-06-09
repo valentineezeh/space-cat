@@ -48,6 +48,6 @@ const { url, port } = server.listen({
 });
   console.log(`
     Server is running
-    Listening to port 4000
-    Query at http://studio.apollographql.com/dev
+    Listening to port ${port}
+    Query at ${url}
   `)
