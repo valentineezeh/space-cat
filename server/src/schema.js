@@ -17,8 +17,10 @@ const schema = gql`
     author: Author!
     "The track main illustration to display"
     thumbnail: String
-    "The track's length"
-    length: Int
+    "The track's length in seconds"
+    length: Int @deprecated(reason: "Use durationInSeconds")
+    "The track full duration in seconds"
+    durationInSeconds: Int
     "The number of tracks"
     modulesCount: Int
     "the track complete description"
@@ -34,8 +36,14 @@ const schema = gql`
     id: ID!
     "The Module's title"
     title: String!
-    "The module's length in minutes"
-    length: Int
+    "The track's length in seconds"
+    length: Int @deprecated(reason: "Use durationInSeconds")
+    "The track full duration in seconds"
+    durationInSeconds: Int
+    "The module text base descriptions"
+    content: String
+    "The module's video url, for video-based modules"
+    videoUrl: String
   }
 
   "Author of a complete track"

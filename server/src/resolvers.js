@@ -19,7 +19,11 @@ const resolvers = {
   //  fetch modules using the module api with the module id
    modules: ({ id }, _, { dataSources }) => {
      return dataSources.TrackAPI.getTrackModules(id)
-   }
+   },
+   durationInSeconds: ({ length }) => length,
+ },
+ Module: {
+   durationInSeconds: ({ length }) => length,
  }
 }
 
