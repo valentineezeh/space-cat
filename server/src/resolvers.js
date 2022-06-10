@@ -11,6 +11,30 @@ const resolvers = {
     return dataSources.TrackAPI.getTrack(id)
   }
  },
+ Mutation: {
+  //  not you don't need the parent for root mutations
+   incrementTrackViews: async (_, { id }, { dataSources }) => {
+     try {
+       console.log('===> i got here ')
+      const track = await dataSources.TrackAPI.incrementTrackViews(id);
+
+      return {
+        code: 200,
+        success: true,
+        message: `Successfully incremented number of views for track ${id}`,
+        track
+      }
+     } catch(err) {
+       return {
+        code: err.extensions.response.status,
+        success: false,
+        message: err.extensions.response.body,
+        track: null
+       }
+     }
+   }
+ },
+//  main type variables for Track
  Track: {
   //  fetch author using the author api using the author ID
    author: ({ authorId }, _, { dataSources }) => {
@@ -22,6 +46,7 @@ const resolvers = {
    },
    durationInSeconds: ({ length }) => length,
  },
+ //  main type variables for Module
  Module: {
    durationInSeconds: ({ length }) => length,
  }
