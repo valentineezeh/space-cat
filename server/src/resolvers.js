@@ -15,7 +15,6 @@ const resolvers = {
   //  not you don't need the parent for root mutations
    incrementTrackViews: async (_, { id }, { dataSources }) => {
      try {
-       console.log('===> i got here ')
       const track = await dataSources.TrackAPI.incrementTrackViews(id);
 
       return {
