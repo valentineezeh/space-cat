@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:14.17.0-alpine
+FROM --platform=linux/amd64 node:14.17.0-alpine AS base
 WORKDIR /app
 COPY package.json /app
 RUN npm install

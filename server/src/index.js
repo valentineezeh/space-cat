@@ -40,7 +40,7 @@ const port = process.env.PORT || 4000
 
 server.listen({ port });
   console.log(`
-    Server is running
+    V2 Server is running
     Listening to port ${port}
     Query at http://studio.apollographql.com/dev
   `)
